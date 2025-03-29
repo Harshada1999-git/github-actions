@@ -1,0 +1,16 @@
+name: event-push
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v3
+      - name: install nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18  # Fixed typo here from 'nodfe-version' to 'node-version'
+      - name: Install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm test  # Corrected 'npm tests' to 'npm test'
